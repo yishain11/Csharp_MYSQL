@@ -21,6 +21,11 @@ namespace c__SQL.DAL
             return this._conn;
 
         }
+
+        public void closeConnetion() {
+            this._conn.Close();
+            this._conn = null;
+        }
         public DAL() {
             try {
                 this.openConnection();
@@ -40,14 +45,15 @@ namespace c__SQL.DAL
             List<Employee> empList = new List<Employee>();
             var cmd = new MySqlCommand(query, this._conn);
             var reader = cmd.ExecuteReader();
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 int employeeNumber = reader.GetInt32("employeeNumber");
                 string lastName = reader.GetString("lastName");
                 string firstName = reader.GetString("firstName");
                 string jobTitle = reader.GetString("jobTitle");
-                Employee emp = new Employee(employeeNumber,firstName,lastName,jobTitle);
+                Employee emp = new Employee(employeeNumber, firstName, lastName, jobTitle);
                 empList.Add(emp);
-    }       
+            }
             return empList;
         }
     }

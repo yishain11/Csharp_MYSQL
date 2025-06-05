@@ -15,8 +15,9 @@ class Program
 
         // DAL
         DAL dal = new DAL();
-        List<Employee> empList = dal.getEmployees();
-        foreach (Employee emp in empList)
+        List<Employee> allEmpList = dal.getEmployees();
+        List<Employee> FilteredEmpList = dal.getEmployees("SELECT * FROM employees WHERE firstName LIKE '%D%' ");
+        foreach (Employee emp in FilteredEmpList)
         {
             emp.printDetails();
         }
