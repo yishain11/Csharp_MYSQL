@@ -95,6 +95,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasicConnetion\BasicConnection.cs" />
+    <Compile Include="DAL\DAL.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
